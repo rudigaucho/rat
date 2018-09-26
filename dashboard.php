@@ -80,7 +80,11 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="pesq_per.php">PERÍODO</a></li>
-          <li><a href="pesq_rat.php">NÚMERO BA/RAT</a></li>
+          <li><a href="pesq_rat.php">NÚMERO DA RAT</a></li>
+          <li><a href="pesq_ba.php">NÚMERO DO BA</a></li>
+          <?php if($_SESSION["acesso"] == 'ADM'){?>
+          <li><a href="pesq_tr.php">MATRÍCULA (TR)</a></li>
+           <?php } ?>
            
           
         </ul>

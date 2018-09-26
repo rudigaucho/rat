@@ -100,7 +100,7 @@ function loginsuccessfully()
 
 
 
-   <form class="form-inline" role="form"   method="POST" action="pesq_rat.php" style="margin-left:10%;">
+   <form class="form-inline" role="form"   method="POST" action="pesq_ba.php" style="margin-left:10%;">
     <div class="form-group">
    
 
@@ -110,7 +110,7 @@ function loginsuccessfully()
   <div class="form-group ">
       
        
-      <label for="email">Nº DA RAT   </label>
+      <label for="email">Nº DO BA  </label>
       <input type="text" class="form-control"  name="ratba" placeholder="Pesquisa" >
    
      </div> 
@@ -145,14 +145,14 @@ function loginsuccessfully()
 
 $ratba = $_POST['ratba'];
 if ($_SESSION['acesso'] == "ADM"){
-$sql = mysql_query ("select * from principal   where n_rat = '$ratba'" );
+$sql = mysql_query ("select * from principal   where ba = '$ratba'" );
 // $sql2 = mysql_query ("select count(*) as conta  from relatorio where gra = '".$busca."' and data BETWEEN  '$data 00:00:00' and '$data 23:59:00' order by data desc   " );
 
 }
 
 else if ($_SESSION['acesso'] == "TEC"){
 
-$sql = mysql_query ("select * from principal   where n_rat = '$ratba'  and tr = '".$_SESSION['tr']."'" );
+$sql = mysql_query ("select * from principal   where ba = '$ratba'  and tr = '".$_SESSION['tr']."'" );
 
 }
 $row = mysql_num_rows($sql);
