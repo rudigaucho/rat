@@ -131,6 +131,7 @@ function loginsuccessfully()
         <th>DATA</th>
          <th>RAT F</th>
         <th>RAT V</th>
+        <th>MATERIAL</th>
    
         
         
@@ -169,6 +170,7 @@ if (mysql_num_rows($sql) > 0)
       <tr class="success">
       <?php $ratv = $ratv = $dado ["ratv"]; ?>
       <?php $ratf = $ratf = $dado ["ratf"]; ?> 
+      <?php $ratm = $ratf = $dado ["ratm"]; ?> 
 <td> <?php echo $dado ["n_rat"];  ?></td>
 <td> <?php echo $dado ["ba"];  ?></td>
 <td> <?php echo $dado ["tr"];  ?></td>
@@ -176,7 +178,7 @@ if (mysql_num_rows($sql) > 0)
 <td> <?php echo $dado ["data"];  ?></td>
 <td><?php echo "<a target='_blank' href='rats/$ratf'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
   <td><?php echo "<a target='_blank' href='rats/$ratv'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
-
+<td><?php echo "<a target='_blank' href='rats/$ratm'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
 
 <?php } } }?>
 

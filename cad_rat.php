@@ -132,36 +132,80 @@ function loginsuccessfully()
     </div>
      
       
-      <FIELDSET  style="border: 1px solid; padding: 12px;">
+      <FIELDSET  style="border: 1px solid; padding: 6px; padding-left:35%;">
      <div class="form-group">
 
-      <label for="email">RAT FRENTE: </label>
-    <input type="file"    required name="ratf"/> 
+      <label for="email">RAT FRENTE: </label><br>
+   <!-- <input type="file"    required name="ratf"/> -->
+
+    <img src="img/upload.png" id="upfile1" style="cursor:pointer;width:40px" />
+<input type="file" id="file1" required  name="ratf" style="display:none" />
 </div>
 </FIELDSET>
     <br>
-    <FIELDSET  style="border: 1px solid; padding: 12px;">
+    <FIELDSET  style="border: 1px solid; padding: 6px;  padding-left:35%;">
     <div class="form-group">
-      <label for="email">RAT VERSO: </label>
-    <input type="file"    required name="ratv" /> 
+      <label for="email">RAT VERSO: </label><br>
+      <!--
+    <input type="file"    required name="ratv" />  -->
+    <img src="img/upload.png" id="upfile2" style="cursor:pointer; width:40px"   />
+<input type="file" id="file2"  required name="ratv" style="display:none;" />
+
+</div>
+</FIELDSET>
+    <br>
+    <FIELDSET  style="border: 1px solid; padding: 6px;  padding-left:35%;">
+    <div class="form-group">
+      <label for="email">MATERIAIS: </label><br>
+      <!--
+    <input type="file"    required name="ratv" />  -->
+    <img src="img/upload.png" id="upfile3" style="cursor:pointer; width:40px" />
+<input type="file" id="file3"  name="ratm" style="display:none;" />
+
 </div>
 </FIELDSET>
     <br>
 
-  
 
 
-   
+
+
       
 
+      <script >
     
+
+    $("#upfile2").click(function () {
+    $("#file2").trigger('click');
+});
+
+
+  </script>
 
 
 
          
   
 
+  <script >
+    
 
+    $("#upfile1").click(function () {
+    $("#file1").trigger('click');
+});
+
+
+  </script>
+
+    <script >
+    
+
+    $("#upfile3").click(function () {
+    $("#file3").trigger('click');
+});
+
+
+  </script>
 
 
 

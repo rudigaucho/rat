@@ -116,9 +116,11 @@ $ratv =$_POST['ratv'];
 
 	  $type =$_FILES['ratf'] ['type'];
     $type2 =$_FILES['ratv'] ['type'];
+    $type3 =$_FILES['ratm'] ['type'];
 
     $tamanho1 =$_FILES['ratf']['size'];
     $tamanho2 =$_FILES['ratv']['size'];
+    $tamanho3 =$_FILES['ratm']['size'];
 
     if (empty($type))
             {
@@ -137,17 +139,25 @@ $ratv =$_POST['ratv'];
 
 
             }
+            if (empty($type3))
+            {
+
+               $type3 = 'image/png';
+
+
+
+            }
 
 
 
 
-    if (!in_array($type,$permite) || !in_array($type2,$permite ) )
+    if (!in_array($type,$permite) || !in_array($type2,$permite ) || !in_array($type3,$permite ) )
 {
 
 echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG!";
 	// echo "<script>saidasuccessfully()</script>";
 }
-else if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000) )
+else if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000)  || ($tamanho3 > 2000000))
 {
 
 echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
@@ -182,13 +192,25 @@ move_uploaded_file($_FILES['ratv'] ['tmp_name'], $diretorio.$novo_nome2 )	;
 
 	}
 
+	if(isset($_FILES['ratm'])) {
+
+$extensao = strtolower (substr($_FILES['ratm'] ['name'], -4));
+	$novo_nome3  = md5(mt_rand(1, 1000) . microtime()) . $extensao;
+    $diretorio = "rats/";
+
+
+
+move_uploaded_file($_FILES['ratm'] ['tmp_name'], $diretorio.$novo_nome3 )	;
+
+	}
+
  
 
 
 
-$query = "insert into principal (n_rat,ba,tr,nome,data,ratf,ratv)";
+$query = "insert into principal (n_rat,ba,tr,nome,data,ratf,ratv,ratm)";
 
-$query.= "values ('$num','$ba','".$_SESSION['tr']."','".$_SESSION['nome']."',NOW(),'$novo_nome','$novo_nome2')";
+$query.= "values ('$num','$ba','".$_SESSION['tr']."','".$_SESSION['nome']."',NOW(),'$novo_nome','$novo_nome2','$novo_nome3')";
 
 
 
