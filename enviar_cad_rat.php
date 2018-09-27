@@ -194,6 +194,11 @@ move_uploaded_file($_FILES['ratv'] ['tmp_name'], $diretorio.$novo_nome2 )	;
 
 	if(isset($_FILES['ratm'])) {
 
+		if($tamanho3 <= 0){
+          $novo_nome3 = "null";
+
+		}else{
+
 $extensao = strtolower (substr($_FILES['ratm'] ['name'], -4));
 	$novo_nome3  = md5(mt_rand(1, 1000) . microtime()) . $extensao;
     $diretorio = "rats/";
@@ -203,7 +208,7 @@ $extensao = strtolower (substr($_FILES['ratm'] ['name'], -4));
 move_uploaded_file($_FILES['ratm'] ['tmp_name'], $diretorio.$novo_nome3 )	;
 
 	}
-
+   }
  
 
 

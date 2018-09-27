@@ -178,9 +178,17 @@ if (mysql_num_rows($sql) > 0)
 <td> <?php echo $dado ["data"];  ?></td>
 <td><?php echo "<a target='_blank' href='rats/$ratf'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
 <td><?php echo "<a target='_blank' href='rats/$ratv'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
+<?php if($ratm == 'null'){?>
+
+<td></td>
+
+    <?php }else{ ?>
+
 <td><?php echo "<a target='_blank' href='rats/$ratm'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
 
-<?php } } }?>
+
+
+<?php } } } }?>
 
 </body>
 </html>

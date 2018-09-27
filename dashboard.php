@@ -64,26 +64,26 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
                 <a class="navbar-brand" href="#">SISTEMA RAT</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" >
               
                              
                     <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">CADASTRO
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="cad_rat.php">RAT</a></li>
+        <ul class="dropdown-menu" style="background-color:gray">
+          <li><a href="cad_rat.php"><strong>RAT</strong></a></li>
          
         </ul>
       </li>
-                  <li class="dropdown">
+                  <li class="dropdown" >
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">PESQUISA
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="pesq_per.php">PERÍODO</a></li>
-          <li><a href="pesq_rat.php">NÚMERO DA RAT</a></li>
-          <li><a href="pesq_ba.php">NÚMERO DO BA</a></li>
+        <ul class="dropdown-menu" style="background-color:gray">
+          <li><a href="pesq_per.php"><strong>PERÍODO</strong></a></li>
+          <li><a href="pesq_rat.php"><strong>NÚMERO DA RAT</strong></a></li>
+          <li><a href="pesq_ba.php"><strong>NÚMERO DO BA</strong></a></li>
           <?php if($_SESSION["acesso"] == 'ADM'){?>
-          <li><a href="pesq_tr.php">MATRÍCULA (TR)</a></li>
+          <li><a href="pesq_tr.php"><strong>MATRÍCULA (TR)</strong></a></li>
            <?php } ?>
            
           
@@ -92,9 +92,9 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
         <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">PESSOAL
         <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="modifica_senha.php">ALTERA SENHA</a></li>
-         <li><a href="logout.php">LOGOUT</a></li>
+        <ul class="dropdown-menu" style="background-color:gray">
+          <li><a href="modifica_senha.php"><strong>ALTERA SENHA</strong></a></li>
+         <li><a href="logout.php"><strong>LOGOUT</strong></a></li>
            
           
         </ul>

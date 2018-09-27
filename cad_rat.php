@@ -45,6 +45,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="icon" href="img/icon.ico">
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 
@@ -71,6 +72,10 @@ function loginsuccessfully()
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <script>
+swal("ATENÇÃO", "Verifique antes de enviar o arquivo da RAT se o mesmo está NÍTIDO , evitando que o mesmo seja DESCONSIDERADO. Recomenda-se a digitalização do documento.");
+</script>
+
   <p  style="font-size: 12px;"><i><strong>© Copyright Serede S/A Desenvolvimento Rudinei Rossales  </strong></i></p>
 <div class="navbar navbar-inverse navbar">
         <div class="container">
@@ -132,7 +137,7 @@ function loginsuccessfully()
     </div>
      
       
-      <FIELDSET  style="border: 1px solid; padding: 6px; padding-left:35%;">
+      <FIELDSET  style="border: 1px solid; padding: 6px; padding-left:35%;" >
      <div class="form-group">
 
       <label for="email">RAT FRENTE: </label><br>
