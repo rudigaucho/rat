@@ -153,7 +153,7 @@ $sql = mysql_query ("select * from principal   where n_rat = '$ratba'" );
 
 else if ($_SESSION['acesso'] == "TEC"){
 
-$sql = mysql_query ("select * from principal   where n_rat = '$ratba'  and tr = '".$_SESSION['tr']."'" );
+$sql = mysql_query ("select * from principal   where n_rat = '$ratba'  and tr = '".$_SESSION['tr']."' order by data asc" );
 
 }
 $row = mysql_num_rows($sql);

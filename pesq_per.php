@@ -215,7 +215,7 @@ $data = $_POST['date'];
 $data2 = $_POST['date2'];
 
 if ($_SESSION['acesso'] == "ADM"){
-$sql = mysql_query ("select * from principal   where data BETWEEN '$data' and '$data2' ORDER BY data asc" );
+$sql = mysql_query ("select * from principal   where data BETWEEN '$data' and '$data2' ORDER BY data desc" );
 
 }
 if ($_SESSION['acesso'] == "TEC"){

@@ -154,7 +154,7 @@ function loginsuccessfully()
 
 $ratba = $_POST['ratba'];
 
-$sql = mysql_query ("select * from principal   where tr = '$ratba'" );
+$sql = mysql_query ("select * from principal   where tr = '$ratba' ORDER BY data desc limit 25" );
 // $sql2 = mysql_query ("select count(*) as conta  from relatorio where gra = '".$busca."' and data BETWEEN  '$data 00:00:00' and '$data 23:59:00' order by data desc   " );
 
 
