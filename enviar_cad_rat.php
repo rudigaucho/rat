@@ -101,9 +101,11 @@ function saidasuccessfully()
 $cod_cli = (mt_rand(1,1010200));
 
 $num =$_POST['num'];
+$ccto =$_POST['ccto']; 
 $ba =$_POST['ba'];
 $ratf =$_POST['ratf'];
 $ratv =$_POST['ratv']; 
+
 
 
 
@@ -157,10 +159,10 @@ $ratv =$_POST['ratv'];
 echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG!";
 	// echo "<script>saidasuccessfully()</script>";
 }
-else if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000)  || ($tamanho3 > 2000000))
+else if ( ($tamanho1 > 1000000) || ($tamanho2 > 1000000)  || ($tamanho3 > 1000000))
 {
 
-echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
+echo "TAMANHO MÁXIMO DA IMAGEM 1MB!";
   // echo "<script>saidasuccessfully()</script>";
 }
 
@@ -213,9 +215,9 @@ move_uploaded_file($_FILES['ratm'] ['tmp_name'], $diretorio.$novo_nome3 )	;
 
 
 
-$query = "insert into principal (n_rat,ba,tr,nome,data,ratf,ratv,ratm)";
+$query = "insert into principal (n_rat,ba,tr,nome,data,ratf,ratv,ratm,ccto)";
 
-$query.= "values ('$num','$ba','".$_SESSION['tr']."','".$_SESSION['nome']."',NOW(),'$novo_nome','$novo_nome2','$novo_nome3')";
+$query.= "values ('$num','$ba','".$_SESSION['tr']."','".$_SESSION['nome']."',NOW(),'$novo_nome','$novo_nome2','$novo_nome3','$ccto')";
 
 
 

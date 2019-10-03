@@ -27,6 +27,17 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+
+<script language="Javascript">
+function confirmacao(n_rat) {
+     var resposta = confirm("Deseja remover esse registro?");
+ 
+     if (resposta == true) {
+          window.location.href = "deletar.php?n_rat="+n_rat;
+     }
+}
+</script>
      
    <!-- ///////PASTA BOOTSTRAP ////////////////////-->
    <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -61,7 +72,7 @@ function loginsuccessfully()
 </script>
 
   <link rel="icon" href="img/key.png">
-<title>SISTEMA GRUPO APA</title>
+<title>SISTEMA RAT</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -185,28 +196,30 @@ function loginsuccessfully()
     
     <button type="submit"  name="submit" id="submit" class="btn btn-default">Busca</button> <br><br><br><br>
   </form>
-
+  
 
   <div class="table-responsive">
-  <table class="table table-hover" id="myTable">
-    <thead>
-      <tr >
-       
-        <th>NÚMERO</th>
-        <th>BA</th>
-        <th>TR</th>
-         <th>NOME</th>
-        <th>DATA</th>
-         <th>RAT F</th>
-        <th>RAT V</th>
-        <th>MATERIAL</th>
-   
-        
-        
-      </tr>
-    </thead>
-  
-  <?php
+  <table id="myTable" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>NÚMERO</th>
+                <th>BA</th>
+                <th>CCTO</th>
+                <th>TR</th>
+                <th>NOME</th>
+                <th>DATA</th>
+                <th>RAT F</th>
+                <th>RAT V</th>
+                <th>MATERIAL</th>
+                <th>DELETAR</th>
+     
+      
+      
+      
+            </tr>
+        </thead>
+
+        <?php
   if (isset($_POST ['submit']) )
 {
 
@@ -238,29 +251,85 @@ if (mysql_num_rows($sql) > 0)
 {
   while ($dado = mysql_fetch_assoc($sql)){
 ?>
-    <tbody>
-      <tr class="success">
+     <tbody>
+
+        <?php  while ($dado = mysql_fetch_assoc($sql)){
+        $dado2 = mysql_fetch_assoc($sql2); ?>
+        <tr>
+      
+      <?php $n_rat = $n_rat = $dado ["n_rat"]; ?>
       <?php $ratv = $ratv = $dado ["ratv"]; ?>
       <?php $ratf = $ratf = $dado ["ratf"]; ?> 
       <?php $ratm = $ratm = $dado ["ratm"]; ?> 
-<td> <?php echo $dado ["n_rat"];  ?></td>
-<td> <?php echo $dado ["ba"];  ?></td>
-<td> <?php echo $dado ["tr"];  ?></td>
-<td> <?php echo $dado ["nome"];  ?></td>
-<td> <?php echo $dado ["data"];  ?></td>
-<td><?php echo "<a target='_blank' href='rats/$ratf'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
-<td><?php echo "<a target='_blank' href='rats/$ratv'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
-<?php if($ratm == 'null'){?>
+      <td> <?php echo $dado ["n_rat"];  ?></td>
+      <td> <?php echo $dado ["ba"];  ?></td>
+      <td> <?php echo $dado ["ccto"];  ?></td>
+      <td> <?php echo $dado ["tr"];  ?></td>
+      <td> <?php echo $dado ["nome"];  ?></td>
+      <td> <?php echo $dado ["data"];  ?></td>
+      <td><?php echo "<a target='_blank' href='rats/$ratf'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
+      <td><?php echo "<a target='_blank' href='rats/$ratv'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
+      
+      <?php if($ratm == 'null'){?>
 
-<td></td>
+      <td></td>
 
-    <?php }else{ ?>
+     <?php }else{ ?>
 
-<td><?php echo "<a target='_blank' href='rats/$ratm'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
+     <td><?php echo "<a target='_blank' href='rats/$ratm'> <span class='glyphicon glyphicon-new-window' aria-hidden='true'></a>"?></td>
 
 
 
-<?php } } } }?>
+     <?php }  ?> <td> <a href="javascript:func()"
+     onclick="confirmacao('<?php echo $n_rat;?>')" class="btn btn-danger btn-xs active" role="button" aria-pressed="true">Deletar</a></td>  
+
+     <?php } }}
+
+
+}?>   
+
+     
+      
+      
+      
+       
+    
+     </tbody>
+ 
+    </table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> 
+ <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script>
+ $(document).ready( function () {
+    $('#myTable').DataTable({
+      "language": {
+            "lengthMenu": "Mostrando _MENU_ registros por página",
+            
+            "zero registros": "Nada encontrado",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "Nenhum registro",
+            
+            "infoFiltered": "(filtrando de _MAX_ total de registros)"
+        }
+
+
+
+    });
+} );
+
+</script>
+
+
+  
+
+
+
+  
+  
 </body>
 </html>
 

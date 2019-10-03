@@ -16,6 +16,8 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 
 
 
+
+
  
 
 
@@ -26,6 +28,17 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+
+<script language="Javascript">
+function confirmacao(n_rat) {
+     var resposta = confirm("Deseja remover esse registro?");
+ 
+     if (resposta == true) {
+          window.location.href = "deletar.php?n_rat="+n_rat;
+     }
+}
+</script>
      
    <!-- ///////PASTA BOOTSTRAP ////////////////////-->
    <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -60,7 +73,7 @@ function loginsuccessfully()
 </script>
 
   <link rel="icon" href="img/key.png">
-<title>SISTEMA GRUPO RAT</title>
+<title>SISTEMA RAT</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -126,6 +139,7 @@ function loginsuccessfully()
        
         <th>NÚMERO</th>
         <th>BA</th>
+        <th>CCTO</th>
         <th>TR</th>
          <th>NOME</th>
         <th>DATA</th>
@@ -173,6 +187,7 @@ if (mysql_num_rows($sql) > 0)
       <?php $ratm = $ratf = $dado ["ratm"]; ?> 
 <td> <?php echo $dado ["n_rat"];  ?></td>
 <td> <?php echo $dado ["ba"];  ?></td>
+<td> <?php echo $dado ["ccto"];  ?></td>
 <td> <?php echo $dado ["tr"];  ?></td>
 <td> <?php echo $dado ["nome"];  ?></td>
 <td> <?php echo $dado ["data"];  ?></td>
@@ -188,7 +203,11 @@ if (mysql_num_rows($sql) > 0)
 
 
 
-<?php } } } }?>
+<?php } } 
+?> <td> <a href="javascript:func()"
+onclick="confirmacao('<?php echo $n_rat;?>')" class="btn btn-danger btn-xs active" role="button" aria-pressed="true">Deletar</a></td>   <?php } }?> 
+
+} }?>
 
 </body>
 </html>
