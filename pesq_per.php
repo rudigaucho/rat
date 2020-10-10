@@ -281,7 +281,7 @@ if (mysql_num_rows($sql) > 0)
 
 
      <?php }  ?> <td> <a href="javascript:func()"
-     onclick="confirmacao('<?php echo $n_rat;?>')" class="btn btn-danger btn-xs active" role="button" aria-pressed="true">Deletar</a></td>  
+     onclick="confirmacao('<?php echo $protocolo;?>')" class="btn btn-danger btn-xs active" role="button" aria-pressed="true">Deletar</a></td>  
 
      <?php } }}
 
